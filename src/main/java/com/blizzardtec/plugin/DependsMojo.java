@@ -24,7 +24,6 @@ import com.blizzardtec.plugin.helper.ArtifactManager;
  * @author Barnaby Golden
  * @goal depends
  */
-@SuppressWarnings("PMD.LongVariable")
 public final class DependsMojo extends AbstractMojo {
 
     /**
