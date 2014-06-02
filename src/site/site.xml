@@ -1,0 +1,6 @@
+<project name="Maven Streambase Plugin">
+	<version location="left"/>
+	<body>
+		<menu ref="reports" />
+	</body>
+</project>

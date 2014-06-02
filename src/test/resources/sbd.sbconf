@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<streambase-configuration>
+    <global>
+        <plugin directory="${STREAMBASE_HOME}/plugin"/>
+
+        <module-search directory="${STREAMBASE_HOME}/modules"/>
+
+        <operator-resource-search directory="${STREAMBASE_HOME}/resources"/>
+    </global>
+
+    <server>
+    </server>
+
+    <page-pool>
+    </page-pool>
+
+    <runtime>
+        <param name="now-implementation" value="system"/>
+    </runtime>
+
+    <custom-functions>
+	  <custom-function language="java" 
+            class="java.lang.Math" name="log20" 
+            alias="log_base_twenty">
+         <args>
+           <arg type="string"/>
+           <arg type="int"/>
+         </args>
+         <return type="int"/>
+       </custom-function>
+       <custom-function language="java" class="java.lang.Math" name="log30" alias="log_base_thirty" args="auto"/>
+    </custom-functions>
+
+    <sbmonitor>
+        <param name="enabled" value="1"/>
+        <param name="period-ms" value="1000"/>
+    </sbmonitor>
+
+    <authentication>
+        <param name="enabled" value="false"/>
+        <param name="type" value="sb-password-file"/>
+        <param name="filepath" value="${STREAMBASE_HOME}/etc/sbpasswd"/>
+        <param name="adminuser" value=""/>
+        <param name="adminpassword" value=""/>
+    </authentication>
+
+    <high-availability>
+      <ha-application>
+      </ha-application>
+
+      <table-replication>
+      </table-replication>
+    </high-availability>
+
+    <java-vm>
+    </java-vm>
+
+    <data-sources>
+    </data-sources>        
+
+    <operator-parameters>
+      <operator-parameter name="MyName" value="'MyValue'" enciphered="true"/>
+    </operator-parameters>
+
+</streambase-configuration>
+
