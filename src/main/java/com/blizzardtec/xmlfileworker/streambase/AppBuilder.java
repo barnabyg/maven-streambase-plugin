@@ -16,6 +16,7 @@ import com.blizzardtec.xmlfileworker.AbstractXmlFileBuilder;
  * @author Barnaby Golden
  *
  */
+@SuppressWarnings("PMD.AvoidUsingHardCodedIP")
 public final class AppBuilder extends AbstractXmlFileBuilder {
 
     /**
