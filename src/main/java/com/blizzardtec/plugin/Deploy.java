@@ -71,8 +71,11 @@ public final class Deploy {
 
         // make sure the target directory exists
         final File targetDirectory = new File(targetDir);
+
         if (!targetDirectory.exists()) {
+
             final boolean createSuccess = targetDirectory.mkdir();
+
             if (!createSuccess) {
                 throw new PluginException("Unable to make target directory");
             }
@@ -110,6 +113,7 @@ public final class Deploy {
                         final String[] directorys,
                         final String[] extensions,
                         final String version) throws PluginException {
+
         if ((streambasedir == null) || (!new File(streambasedir).exists())) {
             throw new PluginException(
                     "Streambase directory undefined or does not exist");

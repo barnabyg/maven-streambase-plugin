@@ -33,7 +33,7 @@ public final class ModuleSearchTest extends AbstractTest {
     public void constructFromXml() throws HelperException {
 
         final File confFile =
-            new File(getBaseDir() + File.separator + "sbd.sbconf");
+            new File(getResourceDir() + File.separator + "sbd.sbconf");
 
         final ConfModifier modifier = new ConfModifier();
         modifier.load(confFile);

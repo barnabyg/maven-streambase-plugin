@@ -6,12 +6,14 @@ package com.blizzardtec.plugin;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.io.IOException;
 
-import org.junit.After;
-import org.junit.Before;
+import org.apache.commons.io.FileUtils;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.blizzardtec.helpers.DirectoryHelper;
+import com.blizzardtec.helpers.FileHelper;
 import com.blizzardtec.helpers.HelperException;
 import com.blizzardtec.testbase.AbstractTest;
 
@@ -26,43 +28,24 @@ public final class StudioTest extends AbstractTest {
      */
     private static final String MYAPP = "myApp";
     /**
-     * Test directory for studio command.
+     * Working folder for testing.
      */
-    private transient String studioDir;
-    /**
-     * .settings directory.
-     */
-    private transient File settingsDir;
-    /**
-     * .project file.
-     */
-    private transient File projectFile;
-    /**
-     * .classpath file.
-     */
-    private transient File classpathFile;
-    /**
-     * sbd.sbconf file.
-     */
-    private transient File sbConfFile;
+    private static File scratch;
 
     /**
      * Setup.
      *
      * @throws HelperException thrown
      */
-    @Before
-    public void setUp() throws HelperException {
+    @BeforeClass
+    public static void setUp() throws HelperException {
 
-        studioDir = getBaseDir() + File.separator + "studiodir";
 
-        settingsDir = new File(studioDir + File.separator + ".settings");
+        // make the scratch working directory
+        scratch = new File(
+                    getBaseDir() + File.separator + "scratch");
 
-        projectFile = new File(studioDir + File.separator + ".project");
-
-        classpathFile = new File(studioDir + File.separator + ".classpath");
-
-        sbConfFile = new File(studioDir + File.separator + "sbd.sbconf");
+        scratch.mkdir();
     }
    
     /**
@@ -73,9 +56,38 @@ public final class StudioTest extends AbstractTest {
     public void streambaseStudioTest()
                 throws PluginException {
 
+        final String studioDir = scratch.getPath() + File.separator + "studiodir";
+
+        new File(studioDir).mkdir();
+
+        final File sbdLocalFile = new File(getBaseDir()
+                                    + File.separator + "src"
+                                    + File.separator + "test"
+                                    + File.separator + "resources"
+                                    + File.separator + "sbd.local");
+
+        try {
+
+            FileHelper.copyFile(
+                    sbdLocalFile, new File(
+                                studioDir + File.separator + "sbd.local"));
+
+        } catch (HelperException he) {
+            throw new PluginException(he);
+        }
+
         final Studio studio = new Studio();
 
         studio.streambaseStudio(studioDir, MYAPP);
+
+        // test successful operation
+        final File settingsDir = new File(studioDir + File.separator + ".settings");
+
+        final File projectFile = new File(studioDir + File.separator + ".project");
+
+        final File classpathFile = new File(studioDir + File.separator + ".classpath");
+
+        final File sbConfFile = new File(studioDir + File.separator + "sbd.sbconf");
 
         assertTrue(
                 ".project file does not exist", projectFile.exists());
@@ -91,18 +103,15 @@ public final class StudioTest extends AbstractTest {
     }
 
     /**
-     * After test cleanup.
+     * Cleanup.
      *
-     * @throws HelperException thrown
+     * @throws IOException thrown
      */
-    @After
-    public void tearDown() throws HelperException {
+    @AfterClass
+    public static void tearDown() throws IOException {
 
-        DirectoryHelper.deleteDir(settingsDir);
+        FileUtils.deleteDirectory(
+                new File(getBaseDir() + File.separator + "scratch"));
 
-        projectFile.delete();
-        classpathFile.delete();
-
-        sbConfFile.delete();
     }
 }

@@ -12,22 +12,20 @@ import java.io.File;
 public abstract class AbstractTest {
 
     /**
-     * Base directory.
+     * @return the baseDir
      */
-    private final transient String baseDir;
-
-    /**
-     * Constructor - assigns the base directory.
-     */
-    public AbstractTest() {
-        baseDir = System.getProperty("user.dir") + File.separator + "src"
-                    + File.separator + "test" + File.separator + "resources";
+    public static final String getBaseDir() {
+        return System.getProperty("user.dir");
     }
 
     /**
-     * @return the baseDir
+     * Resource folder location.
+     * @return resource folder path
      */
-    public final String getBaseDir() {
-        return baseDir;
+    public static final String getResourceDir() {
+        return getBaseDir()
+                + File.separator + "src"
+                + File.separator + "test"
+                + File.separator + "resources";
     }
 }

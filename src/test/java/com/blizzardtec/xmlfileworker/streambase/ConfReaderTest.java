@@ -27,7 +27,7 @@ public final class ConfReaderTest extends AbstractTest {
     public void getConfigurationListsTest() throws HelperException {
 
         final File confFile =
-            new File(getBaseDir() + File.separator + "sbd.sbconf");
+            new File(getResourceDir() + File.separator + "sbd.sbconf");
 
         final ConfReader confReader = new ConfReader();
 

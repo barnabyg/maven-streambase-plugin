@@ -7,13 +7,13 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.io.IOException;
 
-import org.junit.After;
-import org.junit.Before;
+import org.apache.commons.io.FileUtils;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.blizzardtec.helpers.DirectoryHelper;
-import com.blizzardtec.helpers.HelperException;
 import com.blizzardtec.plugin.PluginException;
 import com.blizzardtec.testbase.AbstractTest;
 
@@ -24,35 +24,21 @@ import com.blizzardtec.testbase.AbstractTest;
 public final class SettingsHelperTest extends AbstractTest {
 
     /**
-     * Test directory.
+     * Working folder for testing.
      */
-    private static final String TEST_DIR = "testdir";
-    /**
-     * .settings directory.
-     */
-    private transient File settingsDir;
-    /**
-     * Streambase preferences file.
-     */
-    private transient File sbPrefsFile;
-    /**
-     * Path to test directory.
-     */
-    private transient String testPath;
+    private static File scratch;
 
     /**
      * Setup.
      */
-    @Before
-    public void setUp() {
+    @BeforeClass
+    public static void setUp() {
 
-        testPath = getBaseDir() + File.separator + TEST_DIR;
+        // make the scratch working directory
+        scratch = new File(
+                    getBaseDir() + File.separator + "scratch");
 
-        settingsDir = new File(testPath + File.separator + ".settings");
-
-        sbPrefsFile =
-            new File(settingsDir.getPath() + File.separator
-                                    + SettingsHelper.STREAMBASE_PREFS);
+        scratch.mkdir();
     }
 
     /**
@@ -63,14 +49,21 @@ public final class SettingsHelperTest extends AbstractTest {
     @Test
     public void generateSettingsTest()
             throws PluginException {
-        
+
+        final File settingsDir =
+                new File(scratch + File.separator + ".settings");
+
         // make sure the directory does not exist already
         assertFalse("Test directory already exists", settingsDir.exists());
 
-        SettingsHelper.generateSettings(testPath);
+        SettingsHelper.generateSettings(scratch.getPath());
 
         assertTrue(
               "The .settings directory was not created", settingsDir.exists());
+
+        final File sbPrefsFile =
+                new File(settingsDir.getPath() + File.separator
+                                        + SettingsHelper.STREAMBASE_PREFS);
 
         SettingsHelper.addModuleSearchPath(sbPrefsFile, "blah/dog/badger");
     }
@@ -78,11 +71,13 @@ public final class SettingsHelperTest extends AbstractTest {
     /**
      * Cleanup.
      *
-     * @throws HelperException thrown
+     * @throws IOException thrown
      */
-    @After
-    public void cleanup() throws HelperException {
+    @AfterClass
+    public static void tearDown() throws IOException {
 
-        DirectoryHelper.deleteDir(settingsDir);
+        FileUtils.deleteDirectory(
+                new File(getBaseDir() + File.separator + "scratch"));
+
     }
 }

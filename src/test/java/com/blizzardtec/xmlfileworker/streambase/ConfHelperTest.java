@@ -36,7 +36,7 @@ public final class ConfHelperTest extends AbstractTest {
     @Test
     public void getTest() throws HelperException {
         final File sbdFile =
-            new File(getBaseDir() + File.separator + "sbd.sbconf");
+            new File(getResourceDir() + File.separator + "sbd.sbconf");
 
         final Document doc = XMLHelper.loadXMLFile(sbdFile);
 

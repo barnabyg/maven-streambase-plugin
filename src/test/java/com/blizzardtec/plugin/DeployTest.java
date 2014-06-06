@@ -6,13 +6,13 @@ package com.blizzardtec.plugin;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.io.IOException;
 
-import org.junit.After;
-import org.junit.Before;
+import org.apache.commons.io.FileUtils;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.blizzardtec.helpers.DirectoryHelper;
-import com.blizzardtec.helpers.HelperException;
 import com.blizzardtec.testbase.AbstractTest;
 
 /**
@@ -38,30 +38,21 @@ public final class DeployTest extends AbstractTest {
      */
     private static final String SNAPSHOT = "0.0.1-SNAPSHOT";
     /**
-     * Streambase directory.
+     * Working folder for testing.
      */
-    private transient String streambasedir;
-    /**
-     * Working directory.
-     */
-    private transient File workingDir;
-    /**
-     * Deploy directory.
-     */
-    private transient File deployDir;
+    private static File scratch;
 
     /**
      * Setup.
      */
-    @Before
-    public void setUp() {
+    @BeforeClass
+    public static void setUp() {
 
-        streambasedir = getBaseDir() + File.separator + "sbapps";
+        // make the scratch working directory
+        scratch = new File(
+                    getBaseDir() + File.separator + "scratch");
 
-        workingDir = new File(getBaseDir() + File.separator + MYAPP);
-
-        // this is the newly created deploy directory
-        deployDir = new File(streambasedir + File.separator + MYAPP);
+        scratch.mkdir();
     }
 
     /**
@@ -71,6 +62,20 @@ public final class DeployTest extends AbstractTest {
     @Test
     public void streambaseDeployTest() 
                     throws PluginException {
+
+        final String streambasedir = scratch.getPath()
+                                    + File.separator + "sbapps";
+
+        new File(streambasedir).mkdir();
+
+        final File workingDir = new File(getBaseDir()
+                                    + File.separator + "src"
+                                    + File.separator + "test"
+                                    + File.separator + "resources"
+                                    + File.separator + MYAPP);
+
+        // this is the newly created deploy directory
+        final File deployDir = new File(streambasedir + File.separator + MYAPP);
 
         final String[] directorys = new String[] {CONFIG};
         final String[] extensions = new String[] {TXT};
@@ -98,6 +103,12 @@ public final class DeployTest extends AbstractTest {
      */
     @Test
     public void nullValuesTest() {
+
+        final String streambasedir = scratch.getPath()
+                                    + File.separator + "sbapps";
+
+        final File workingDir = new File(scratch.getPath()
+                + File.separator + MYAPP);
 
         final String[] directorys = new String[] {CONFIG};
         final String[] extensions = new String[] {TXT};
@@ -155,10 +166,13 @@ public final class DeployTest extends AbstractTest {
     /**
      * Cleanup.
      *
-     * @throws HelperException thrown
+     * @throws IOException thrown
      */
-    @After
-    public void cleanup() throws HelperException {
-        DirectoryHelper.deleteDir(deployDir);        
+    @AfterClass
+    public static void tearDown() throws IOException {
+
+        FileUtils.deleteDirectory(
+                new File(getBaseDir() + File.separator + "scratch"));
+
     }
 }

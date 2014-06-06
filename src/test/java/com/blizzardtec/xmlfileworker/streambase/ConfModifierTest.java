@@ -6,9 +6,13 @@ package com.blizzardtec.xmlfileworker.streambase;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
@@ -36,13 +40,27 @@ public final class ConfModifierTest extends AbstractTest {
      */
     private static final String SBDCONF = "sbd.sbconf";
     /**
-     * Location to run XML test.
-     */
-    private static final String XML_TEST_DIR = "xmltestdir";
-    /**
      * Name of the template sbd.sbconf file to use.
      */
     private static final String SBD_CONF_TEMPLATE = SBDCONF;
+
+    /**
+     * Working folder for testing.
+     */
+    private static File scratch;
+
+    /**
+     * Setup.
+     */
+    @BeforeClass
+    public static void setUp() {
+
+        // make the scratch working directory
+        scratch = new File(
+                    getBaseDir() + File.separator + "scratch");
+
+        scratch.mkdir();
+    }
 
     /**
      * Load an sbd.sbconf file, modify it and then save it.
@@ -50,15 +68,19 @@ public final class ConfModifierTest extends AbstractTest {
      */
     @Test
     public void modifyTest() throws HelperException {
+
         // first copy the test sbd.sbconf file to the XML test directory
         final String srcXMLFile =
-            getBaseDir() + File.separator + SBD_CONF_TEMPLATE;
-        final String destDir = getBaseDir() + File.separator + XML_TEST_DIR;
-        FileHelper.copyFile(srcXMLFile, destDir);
+            getBaseDir() + File.separator + "src"
+                         + File.separator + "test"
+                         + File.separator + "resources"
+                         + File.separator + SBD_CONF_TEMPLATE;
+
+        FileHelper.copyFile(srcXMLFile, scratch.getPath());
 
         final ConfModifier modifier = new ConfModifier();
 
-        final File sbdFile = new File(destDir + File.separator + SBDCONF);
+        final File sbdFile = new File(scratch + File.separator + SBDCONF);
 
         modifier.load(sbdFile);
 
@@ -101,8 +123,18 @@ public final class ConfModifierTest extends AbstractTest {
         assertNotNull("Document is null", doc);
 
         modifier.save();
+    }
 
-        // cleanup
-        sbdFile.delete();
+    /**
+     * Cleanup.
+     *
+     * @throws IOException thrown
+     */
+    @AfterClass
+    public static void tearDown() throws IOException {
+
+        FileUtils.deleteDirectory(
+                new File(getBaseDir() + File.separator + "scratch"));
+
     }
 }
