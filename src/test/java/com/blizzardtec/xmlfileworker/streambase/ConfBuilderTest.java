@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.streambase;
 
@@ -61,7 +61,7 @@ public final class ConfBuilderTest {
         streambaseConf.generate();
 
         final Document doc = streambaseConf.getDoc();
-        
+
         assertNotNull("sbd.sbconf XML document was null", doc);
     }
 }

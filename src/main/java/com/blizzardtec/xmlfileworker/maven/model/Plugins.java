@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.maven.model;
 
@@ -28,7 +28,7 @@ public final class Plugins implements XmlEntry {
      * Constructor.
      */
     public Plugins() {
-        pluginList = new ArrayList<Plugin>();        
+        pluginList = new ArrayList<Plugin>();
     }
 
     /* (non-Javadoc)
@@ -37,7 +37,7 @@ public final class Plugins implements XmlEntry {
      */
     @Override
     public Element toXML(final Document doc) throws HelperException {
-        
+
         final Element pluginsEl = doc.createElement("plugins");
 
         final Iterator<Plugin> iterator = pluginList.iterator();

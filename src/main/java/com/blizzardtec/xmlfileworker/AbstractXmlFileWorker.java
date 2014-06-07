@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker;
 
@@ -66,7 +66,7 @@ public abstract class AbstractXmlFileWorker implements XmlFileWorker {
      * @throws HelperException thrown
      */
     protected final void initialiseDoc() throws HelperException {
-        doc = XMLHelper.getDocument();        
+        doc = XMLHelper.getDocument();
     }
 
     /**

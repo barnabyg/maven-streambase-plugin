@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.streambase;
 
@@ -58,7 +58,7 @@ public final class ConfModifier extends AbstractXmlFileModifier {
                 } else if (entryType == EntryType.OPRES) {
                     addOperatorSearch((OperatorResSearch) iterator.next());
                 }
-            }            
+            }
         }
     }
 
@@ -87,11 +87,11 @@ public final class ConfModifier extends AbstractXmlFileModifier {
                 found = true;
             }
         }
-        
+
         // if not found, add the operator-resource-search
         // entry to the global node
         if (!found) {
-            global.appendChild(opSearch.toXML(getDoc()));            
+            global.appendChild(opSearch.toXML(getDoc()));
         }
     }
 
@@ -119,7 +119,7 @@ public final class ConfModifier extends AbstractXmlFileModifier {
                 found = true;
             }
         }
-    
+
         // if not found, add the plugin entry to the global node
         if (!found) {
             global.appendChild(modSearch.toXML(getDoc()));
@@ -150,7 +150,7 @@ public final class ConfModifier extends AbstractXmlFileModifier {
                 found = true;
             }
         }
-    
+
         // if not found, add the plugin entry to the global node
         if (!found) {
             global.appendChild(plugin.toXML(getDoc()));

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.plugin;
 
@@ -32,7 +32,7 @@ public final class DependsMojo extends AbstractMojo {
     private transient List<Dependency> dependencies;
     /**
      * Used to look up Artifacts in the remote repository.
-     * 
+     *
      * @parameter expression=
      *  "${component.org.apache.maven.artifact.factory.ArtifactFactory}"
      * @required
@@ -45,7 +45,7 @@ public final class DependsMojo extends AbstractMojo {
     private transient ArtifactRepository localRepository;
     /**
      * Used to look up Artifacts in the remote repository.
-     * 
+     *
      * @parameter expression=
      *  "${component.org.apache.maven.artifact.resolver.ArtifactResolver}"
      * @required

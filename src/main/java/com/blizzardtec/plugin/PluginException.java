@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.plugin;
 
@@ -11,7 +11,7 @@ package com.blizzardtec.plugin;
 public final class PluginException extends Exception {
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -4469765680350064383L;
 

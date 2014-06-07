@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.plugin;
 
@@ -47,7 +47,7 @@ public final class StudioTest extends AbstractTest {
 
         scratch.mkdir();
     }
-   
+
     /**
      * Test the Streambase Studio command.
      * @throws PluginException thrown
@@ -56,7 +56,8 @@ public final class StudioTest extends AbstractTest {
     public void streambaseStudioTest()
                 throws PluginException {
 
-        final String studioDir = scratch.getPath() + File.separator + "studiodir";
+        final String studioDir = scratch.getPath()
+                            + File.separator + "studiodir";
 
         new File(studioDir).mkdir();
 
@@ -81,13 +82,17 @@ public final class StudioTest extends AbstractTest {
         studio.streambaseStudio(studioDir, MYAPP);
 
         // test successful operation
-        final File settingsDir = new File(studioDir + File.separator + ".settings");
+        final File settingsDir =
+                new File(studioDir + File.separator + ".settings");
 
-        final File projectFile = new File(studioDir + File.separator + ".project");
+        final File projectFile =
+                new File(studioDir + File.separator + ".project");
 
-        final File classpathFile = new File(studioDir + File.separator + ".classpath");
+        final File classpathFile =
+                new File(studioDir + File.separator + ".classpath");
 
-        final File sbConfFile = new File(studioDir + File.separator + "sbd.sbconf");
+        final File sbConfFile =
+                new File(studioDir + File.separator + "sbd.sbconf");
 
         assertTrue(
                 ".project file does not exist", projectFile.exists());

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.streambase.model;
 
@@ -30,7 +30,7 @@ public final class CustomFunctions implements XmlEntry {
     public CustomFunctions() {
         custFunctions = new ArrayList<CustomFunction>();
     }
-    
+
     /* (non-Javadoc)
      * @see com.blizzardtec.streambase.StreambaseEntry#toXML(
      * org.w3c.dom.Document)

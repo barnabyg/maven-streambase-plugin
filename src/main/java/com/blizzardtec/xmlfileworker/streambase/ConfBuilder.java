@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.streambase;
 
@@ -18,9 +18,9 @@ import com.blizzardtec.xmlfileworker.streambase.model.Plugin;
 
 /**
  * Build a template sbd.sbconf file from scratch.
- * 
+ *
  * @author Barnaby Golden
- * 
+ *
  */
 public final class ConfBuilder extends AbstractXmlFileBuilder {
 
@@ -36,7 +36,7 @@ public final class ConfBuilder extends AbstractXmlFileBuilder {
      * Operator parameters entry.
      */
     private final transient OperatorParameters opParameters;
-   
+
     /**
      * Constructor.
      */
@@ -106,11 +106,11 @@ public final class ConfBuilder extends AbstractXmlFileBuilder {
 //        final Attr rTypeAttr = doc.createAttribute("type");
 //        rTypeAttr.setValue("double");
 //        atts.setNamedItem(rTypeAttr);
-//        
+//
 //        custFunc.appendChild(returnEl);
 //
 //        custFuncs.appendChild(custFunc);
-//        
+//
 //        return custFuncs;
 //    }
 
@@ -145,7 +145,7 @@ public final class ConfBuilder extends AbstractXmlFileBuilder {
 //        atts.setNamedItem(valueAttr);
 //
 //        server.appendChild(param);
-//        
+//
 //        sbdconf.appendChild(global);
 //        sbdconf.appendChild(server);
 //        sbdconf.appendChild(buildCustomFunctions(doc));

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.plugin;
 
@@ -93,7 +93,7 @@ public final class Studio {
                 builder.save(projFile);
             } catch (HelperException hee) {
                 throw new PluginException(hee);
-            }            
+            }
         }
     }
 
@@ -117,7 +117,7 @@ public final class Studio {
                 builder.save(classpathFile);
             } catch (HelperException hee) {
                 throw new PluginException(hee);
-            }            
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.plugin;
 
@@ -36,7 +36,7 @@ public final class StudioMojo extends AbstractMojo {
         final Studio studio = new Studio();
 
         try {
-            studio.streambaseStudio(workingDir, artifactId);            
+            studio.streambaseStudio(workingDir, artifactId);
         } catch (PluginException ple) {
             throw new MojoExecutionException("Plugin: ", ple);
         }

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.plugin.helper;
 
@@ -23,7 +23,7 @@ public final class WebXmlHelper {
      * Private constructor - denotes utility class.
      */
     private WebXmlHelper() {
-        
+
     }
 
     /**

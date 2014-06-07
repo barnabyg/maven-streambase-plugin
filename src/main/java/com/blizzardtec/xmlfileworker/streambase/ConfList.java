@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.streambase;
 
@@ -89,7 +89,7 @@ public final class ConfList {
 
             while (iterator.hasNext()) {
                 this.sbPlugins.add(iterator.next());
-            }            
+            }
         }
     }
 
@@ -109,10 +109,10 @@ public final class ConfList {
 
             while (iterator.hasNext()) {
                 this.opParameters.add(iterator.next());
-            }            
+            }
         }
     }
-    
+
     /**
      * Add module search list.
      *
@@ -129,7 +129,7 @@ public final class ConfList {
 
             while (iterator.hasNext()) {
                 this.moduleSearchPaths.add(iterator.next());
-            }            
+            }
         }
     }
 
@@ -149,7 +149,7 @@ public final class ConfList {
 
             while (iterator.hasNext()) {
                 this.opResSearchPaths.add(iterator.next());
-            }            
+            }
         }
     }
 
@@ -169,7 +169,7 @@ public final class ConfList {
 
             while (iterator.hasNext()) {
                 this.customFunctions.add(iterator.next());
-            }            
+            }
         }
     }
 

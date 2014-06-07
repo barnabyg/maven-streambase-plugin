@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.streambase.model;
 
@@ -74,7 +74,7 @@ public final class OperatorResSearch implements XmlEntry {
     }
 
     /**
-     * 
+     *
      * @return directory
      */
     public String getDirectory() {

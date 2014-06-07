@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.eclipse;
 
@@ -25,7 +25,7 @@ public final class ProjectBuilderTest {
         final ProjectBuilder builder = new ProjectBuilder();
         builder.setProjectName("myProj");
         builder.generate();
-        
+
         builder.generate();
 
         final Document doc = builder.getDoc();

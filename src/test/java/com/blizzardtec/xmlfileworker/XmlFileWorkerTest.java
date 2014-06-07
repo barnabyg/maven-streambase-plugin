@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker;
 
@@ -21,6 +21,6 @@ public final class XmlFileWorkerTest {
     @Test(expected = HelperException.class)
     public void xmlFileWorkerTest() throws HelperException {
         final ConfModifier modifier = new ConfModifier();
-        modifier.save();            
+        modifier.save();
     }
 }

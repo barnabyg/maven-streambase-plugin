@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.streambase.model;
 
@@ -190,7 +190,7 @@ public final class CustomFunction implements XmlEntry {
                 }
                 args = strings.toArray(new String[strings.size()]);
             }
-        }           
+        }
     }
 
     /**

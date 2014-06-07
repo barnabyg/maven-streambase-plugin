@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.streambase;
 
@@ -44,7 +44,7 @@ public final class ConfHelper {
      * Private constructor denotes utility class.
      */
     private ConfHelper() {
-        
+
     }
 
 
@@ -129,7 +129,7 @@ public final class ConfHelper {
     private static NodeList getSbdConfNodes(final Document doc)
                                         throws HelperException {
 
-        return getTopNode(doc).getChildNodes();        
+        return getTopNode(doc).getChildNodes();
     }
 
     /**
@@ -172,15 +172,15 @@ public final class ConfHelper {
             // for each node found, create a corresponding
             // CustomFunction object
             final NodeList nodeList = custFuncNode.getChildNodes();
-            
+
             for (int i = 0; i < nodeList.getLength(); i++) {
                 if ("custom-function".equals(nodeList.item(i).getNodeName())) {
-                    
+
                     list.add(new CustomFunction(nodeList.item(i)));
                 }
             }
         }
-        
+
         return list;
     }
 
@@ -211,7 +211,7 @@ public final class ConfHelper {
                 }
             }
         }
-        
+
         return list;
     }
 
@@ -241,7 +241,7 @@ public final class ConfHelper {
                 }
             }
         }
-        
+
         return list;
     }
 
@@ -270,7 +270,7 @@ public final class ConfHelper {
                 }
             }
         }
-        
+
         return list;
     }
 
@@ -300,7 +300,7 @@ public final class ConfHelper {
                 }
             }
         }
-        
+
         return list;
     }
 }

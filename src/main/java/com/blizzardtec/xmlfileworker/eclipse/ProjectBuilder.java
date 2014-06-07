@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.eclipse;
 
@@ -12,7 +12,7 @@ import com.blizzardtec.xmlfileworker.AbstractXmlFileBuilder;
  * Builds an Eclipse .project file.
  *
  * @author Barnaby Golden
- * 
+ *
  */
 public final class ProjectBuilder extends AbstractXmlFileBuilder {
 

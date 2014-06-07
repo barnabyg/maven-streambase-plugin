@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.eclipse;
 
@@ -41,7 +41,7 @@ public final class ClasspathBuilder extends AbstractXmlFileBuilder {
     public void generate() throws HelperException {
 
         initialiseDoc();
-        
+
         final Element classpathElement
                 = getDoc().createElement("classpath");
 

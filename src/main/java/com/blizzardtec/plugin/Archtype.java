@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.plugin;
 
@@ -221,7 +221,7 @@ public final class Archtype {
             mavenPom.generate();
             final File pomFile =
                 new File(workingDir + File.separator + "pom.xml");
-            mavenPom.save(pomFile);            
+            mavenPom.save(pomFile);
         } catch (HelperException hee) {
             throw new PluginException(hee);
         }

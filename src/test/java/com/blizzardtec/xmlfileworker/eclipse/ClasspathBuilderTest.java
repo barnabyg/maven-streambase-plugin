@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.eclipse;
 
@@ -24,7 +24,7 @@ public final class ClasspathBuilderTest {
     public void buildClasspathXMLTest() throws HelperException {
         final ClasspathBuilder builder = new ClasspathBuilder();
         builder.generate();
-        
+
         final Document doc = builder.getDoc();
 
         assertNotNull("Document was null", doc);

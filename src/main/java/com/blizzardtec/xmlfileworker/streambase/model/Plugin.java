@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.streambase.model;
 
@@ -78,7 +78,7 @@ public final class Plugin implements XmlEntry {
     }
 
     /**
-     * 
+     *
      * @return directory
      */
     public String getDirectory() {

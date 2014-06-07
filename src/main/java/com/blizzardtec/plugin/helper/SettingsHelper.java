@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.plugin.helper;
 
@@ -21,7 +21,7 @@ import com.blizzardtec.plugin.PluginException;
  * search path entries.
  *
  * @author Barnaby Golden
- * 
+ *
  */
 public final class SettingsHelper {
 
@@ -79,7 +79,7 @@ public final class SettingsHelper {
                                             throws PluginException {
 
         final File settingsDir =
-            new File(workingDir + File.separator + SETTINGS); 
+            new File(workingDir + File.separator + SETTINGS);
 
         // only generate the settings directory if it does not already exist
         if (!settingsDir.exists()) {
@@ -90,14 +90,14 @@ public final class SettingsHelper {
             new File(settingsDir.getPath() + File.separator + ECLIPSE_PREFS);
 
         if (!eclipsePrefsFile.exists()) {
-            createEclipsePrefs(eclipsePrefsFile);            
+            createEclipsePrefs(eclipsePrefsFile);
         }
 
         final File mavenPrefsFile =
             new File(settingsDir.getPath() + File.separator + MAVEN_PREFS);
 
         if (!mavenPrefsFile.exists()) {
-            createMavenPrefs(mavenPrefsFile);            
+            createMavenPrefs(mavenPrefsFile);
         }
 
         final File sbPrefsFile =
@@ -177,7 +177,7 @@ public final class SettingsHelper {
             out.write("skipCompilerPlugin=true");
             out.newLine();
             out.write("version=1");
-            
+
             // Close the output stream
             out.close();
         } catch (IOException ioe) {
@@ -205,7 +205,7 @@ public final class SettingsHelper {
             out.write(
                 "moduleSearchPathFolders=" + MOD_SEARCH_PATH);
             out.newLine();
-            
+
             // Close the output stream
             out.close();
         } catch (IOException ioe) {

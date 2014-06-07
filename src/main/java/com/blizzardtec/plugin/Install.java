@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.plugin;
 
@@ -66,7 +66,7 @@ public final class Install {
         // has enough time to populate the streambase directory
         // before the war packaging begins
         try {
-            Thread.sleep(SLEEP_TIME);    
+            Thread.sleep(SLEEP_TIME);
         } catch (InterruptedException ine) {
             throw new PluginException(ine);
         }
@@ -109,7 +109,7 @@ public final class Install {
             FileHelper.copyFiles(
                     FileHelper.selectFilesByExtension(
                                     files, extensions[i]), targetDir);
-        }                    
+        }
     }
 
     /**
@@ -132,13 +132,13 @@ public final class Install {
         // if the directory already exists, delete it
         if (dir.exists()) {
             try {
-                DirectoryHelper.deleteDir(dir);                
+                DirectoryHelper.deleteDir(dir);
             } catch (HelperException hee) {
                 throw new PluginException(hee);
             }
 
             try {
-                Thread.sleep(SLEEP_TIME);    
+                Thread.sleep(SLEEP_TIME);
             } catch (InterruptedException ine) {
                 throw new PluginException(ine);
             }

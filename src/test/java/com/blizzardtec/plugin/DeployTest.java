@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.plugin;
 
@@ -60,7 +60,7 @@ public final class DeployTest extends AbstractTest {
      * @throws PluginException thrown
      */
     @Test
-    public void streambaseDeployTest() 
+    public void streambaseDeployTest()
                     throws PluginException {
 
         final String streambasedir = scratch.getPath()
@@ -94,7 +94,7 @@ public final class DeployTest extends AbstractTest {
         final File libDir =
             new File(deployDir.getPath() + File.separator + "lib");
 
-        assertTrue("lib directory does not exist", libDir.exists());        
+        assertTrue("lib directory does not exist", libDir.exists());
     }
 
     /**
@@ -125,7 +125,7 @@ public final class DeployTest extends AbstractTest {
                     true,
                     directorys,
                     extensions,
-                    SNAPSHOT);            
+                    SNAPSHOT);
         } catch (PluginException ple) {
             result = true;
         }
@@ -140,7 +140,7 @@ public final class DeployTest extends AbstractTest {
                     true,
                     null,
                     extensions,
-                    SNAPSHOT);            
+                    SNAPSHOT);
         } catch (PluginException ple) {
             result = true;
         }
@@ -155,7 +155,7 @@ public final class DeployTest extends AbstractTest {
                     true,
                     directorys,
                     null,
-                    SNAPSHOT);            
+                    SNAPSHOT);
         } catch (PluginException ple) {
             result = true;
         }

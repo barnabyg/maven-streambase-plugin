@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.plugin.helper;
 
@@ -57,7 +57,7 @@ public final class DependencyHelper {
      * Private constructor denotes utility class.
      */
     private DependencyHelper() {
-        
+
     }
 
     /**
@@ -152,7 +152,7 @@ public final class DependencyHelper {
 
         if (tmpDir.exists()) {
             try {
-                DirectoryHelper.deleteDir(tmpDir);                
+                DirectoryHelper.deleteDir(tmpDir);
             } catch (HelperException hee) {
                 throw new PluginException(hee);
             }
@@ -194,7 +194,7 @@ public final class DependencyHelper {
                 throw new PluginException(afe);
             } catch (ArtifactResolutionException are) {
                 throw new PluginException(are);
-            }                    
+            }
         }
     }
 
@@ -254,7 +254,7 @@ public final class DependencyHelper {
         // the expanded streambase directory
         final File sbDir =
             new File(classesDir.getPath() + File.separator + "streambase");
-            
+
         if (sbDir.exists()) {
             try {
                 DirectoryHelper.copyDirectoryContents(sbDir, destDir);
@@ -301,7 +301,7 @@ public final class DependencyHelper {
         // and then re-create it
         if (destDir.exists()) {
             try {
-                DirectoryHelper.deleteDir(destDir);                
+                DirectoryHelper.deleteDir(destDir);
             } catch (HelperException hee) {
                 throw new PluginException(hee);
             }
@@ -424,7 +424,7 @@ public final class DependencyHelper {
             modifier.save();
         } catch (HelperException hee) {
             throw new PluginException(hee);
-        }        
+        }
     }
 
     /**
@@ -449,7 +449,7 @@ public final class DependencyHelper {
             confList = reader.getConfigurationLists();
         } catch (HelperException hee) {
             throw new PluginException(hee);
-        } 
+        }
 
         return confList;
     }

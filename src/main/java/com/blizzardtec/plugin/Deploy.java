@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.plugin;
 
@@ -54,7 +54,7 @@ public final class Deploy {
      * @param version version number
      * @throws PluginException thrown
      */
-    public void streambaseDeploy(final String streambasedir, 
+    public void streambaseDeploy(final String streambasedir,
                                  final String workingDir,
                                  final boolean copyjars,
                                  final String[] directorys,
@@ -80,13 +80,13 @@ public final class Deploy {
                 throw new PluginException("Unable to make target directory");
             }
         }
-        
+
         // for each extension, copy all the files to the target directory
         // and also copy over each named directory
         try {
             copyDirectoriesOver(directorys, workingDir, targetDir);
             copyFilesWithNamedExtensions(extensions, workingDir, targetDir);
-            
+
         } catch (HelperException hec) {
             throw new PluginException(hec);
         }
@@ -126,7 +126,7 @@ public final class Deploy {
         }
         if (version == null) {
             throw new PluginException("Undefined version");
-        }        
+        }
     }
 
     /**
@@ -169,7 +169,7 @@ public final class Deploy {
             FileHelper.copyFiles(
                     FileHelper.selectFilesByExtension(
                                     files, extensions[i]), targetDir);
-        }                    
+        }
     }
 
     /**

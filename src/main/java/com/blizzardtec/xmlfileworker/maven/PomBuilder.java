@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.xmlfileworker.maven;
 
@@ -113,7 +113,7 @@ public final class PomBuilder extends AbstractXmlFileBuilder {
         project.appendChild(propertiesElement);
 
         if (dependencies != null) {
-            project.appendChild(dependencies.toXML(getDoc()));            
+            project.appendChild(dependencies.toXML(getDoc()));
         }
 
         project.appendChild(build.toXML(getDoc()));
@@ -137,7 +137,7 @@ public final class PomBuilder extends AbstractXmlFileBuilder {
                 getDoc(), project, "xsi:schemaLocation",
                 POMVERSION
                     + " http://maven.apache.org/xsd/maven-4.0.0.xsd");
-        
+
         return project;
     }
 

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.blizzardtec.plugin;
 
@@ -64,7 +64,7 @@ public final class DependsTest extends AbstractTest {
     public void streambaseDependsTest() throws PluginException {
 
         final Depends depends = new Depends();
-       
+
         final ArrayList<Dependency> list =
             new ArrayList<Dependency>();
 
