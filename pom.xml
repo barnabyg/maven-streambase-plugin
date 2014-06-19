@@ -22,6 +22,7 @@
 	</properties>
 
 	<build>
+
 		<plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -163,6 +164,7 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+
 		<extensions>
           <extension>
             <groupId>org.mod4j.patched</groupId>
@@ -170,7 +172,9 @@
             <version>1.0-beta-5-PATCHED-v1</version>
           </extension>
 		</extensions>
+
 	</build>
+
 	<reporting>
 		<plugins>
 			<plugin>
