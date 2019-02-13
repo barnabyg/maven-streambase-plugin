@@ -20,23 +20,26 @@
     <pmd.version>3.1</pmd.version>
     <checkstyle.version>2.12.1</checkstyle.version>
     <maven.version>2.2.1</maven.version>
+    <mavencompiler.version>3.8.0</mavencompiler.version>
 	</properties>
 
 	<build>
 
 		<plugins>
+    
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
+        <version>${mavencompiler.version}</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <release>10</release>
         </configuration>
       </plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-plugin-plugin</artifactId>
-				<version>3.3</version>
+				<version>3.6.0</version>
 				<configuration>
 					<goalPrefix>streambase</goalPrefix>
 				</configuration>
@@ -85,55 +88,57 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>${cobertura.version}</version>
-        <dependencies>  
-          <dependency>  
-            <groupId>org.ow2.asm</groupId>  
-            <artifactId>asm</artifactId>  
-            <version>5.0.3</version>  
-          </dependency>  
-        </dependencies>  
-				<configuration>
-					<check>
-            <haltOnFailure>false</haltOnFailure>
-						<branchRate>60</branchRate>
-						<lineRate>70</lineRate>
-						<totalBranchRate>60</totalBranchRate>
-						<totalLineRate>70</totalLineRate>
-						<packageLineRate>50</packageLineRate>
-						<packageBranchRate>50</packageBranchRate>
-						<regexes>
-							<regex>
-								<pattern>com.blizzardtec.plugin.*Mojo</pattern>
-								<branchRate>0</branchRate>
-								<lineRate>0</lineRate>
-							</regex>
-							<regex>
-								<pattern>com.blizzardtec.plugin.helper.DependencyHelper</pattern>
-								<branchRate>0</branchRate>
-								<lineRate>0</lineRate>
-							</regex>
-							<regex>
-								<pattern>com.blizzardtec.plugin.helper.ArtifactManager</pattern>
-								<branchRate>50</branchRate>
-								<lineRate>69</lineRate>
-							</regex>
-						</regexes>
-					</check>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>verify</phase>
-						<goals>
-							<goal>clean</goal>
-							<goal>check</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.codehaus.mojo</groupId> -->
+<!-- 				<artifactId>cobertura-maven-plugin</artifactId> -->
+<!-- 				<version>${cobertura.version}</version> -->
+<!--         <dependencies>   -->
+<!--           <dependency>   -->
+<!--             <groupId>org.ow2.asm</groupId>   -->
+<!--             <artifactId>asm</artifactId>   -->
+<!--             <version>5.0.3</version>   -->
+<!--           </dependency>   -->
+<!--         </dependencies>   -->
+<!-- 				<configuration> -->
+<!-- 					<check> -->
+<!--             <haltOnFailure>false</haltOnFailure> -->
+<!-- 						<branchRate>60</branchRate> -->
+<!-- 						<lineRate>70</lineRate> -->
+<!-- 						<totalBranchRate>60</totalBranchRate> -->
+<!-- 						<totalLineRate>70</totalLineRate> -->
+<!-- 						<packageLineRate>50</packageLineRate> -->
+<!-- 						<packageBranchRate>50</packageBranchRate> -->
+<!-- 						<regexes> -->
+<!-- 							<regex> -->
+<!-- 								<pattern>com.blizzardtec.plugin.*Mojo</pattern> -->
+<!-- 								<branchRate>0</branchRate> -->
+<!-- 								<lineRate>0</lineRate> -->
+<!-- 							</regex> -->
+<!-- 							<regex> -->
+<!-- 								<pattern>com.blizzardtec.plugin.helper.DependencyHelper</pattern> -->
+<!-- 								<branchRate>0</branchRate> -->
+<!-- 								<lineRate>0</lineRate> -->
+<!-- 							</regex> -->
+<!-- 							<regex> -->
+<!-- 								<pattern>com.blizzardtec.plugin.helper.ArtifactManager</pattern> -->
+<!-- 								<branchRate>50</branchRate> -->
+<!-- 								<lineRate>69</lineRate> -->
+<!-- 							</regex> -->
+<!-- 						</regexes> -->
+<!-- 					</check> -->
+<!-- 				</configuration> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<phase>verify</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>clean</goal> -->
+<!-- 							<goal>check</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
@@ -207,11 +212,13 @@
 					<configLocation>${basedir}/src/main/resources/barnaby-checkstyle-config.xml</configLocation>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>${cobertura.version}</version>
-			</plugin>
+
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.codehaus.mojo</groupId> -->
+<!-- 				<artifactId>cobertura-maven-plugin</artifactId> -->
+<!-- 				<version>${cobertura.version}</version> -->
+<!-- 			</plugin> -->
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
